@@ -1,7 +1,9 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 // Component Imports
-import Button from '../components/Button.astro';
+import PL_logo from "../images/pl_logo.png";
+import LogoHorizontal from "../images/logo_horizontal.png";
+import { Image } from "astro:assets";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -12,14 +14,84 @@ import Button from '../components/Button.astro';
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Add Google Fonts for Lato -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro + TailwindCSS</title>
 	</head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
+	<body class="flex flex-col items-center">
+		<div class="relative flex w-full h-[60%] overflow-hidden">
+			<video autoplay muted loop playsinline class="w-full">
+				<source
+					src="https://philmore.ca/wp-content/uploads/2014/11/cloudytime.mp4"
+					type="video/mp4"
+				/>
+				Your browser does not support the video tag.
+			</video>
+			<div class="absolute left-4 top-4">
+				<Image
+					src={PL_logo}
+					alt="Phil Lichti Logo"
+					width={50}
+					height={50}
+				/>
+			</div>
+			<div class="absolute inset-0 flex items-center justify-center">
+				<Image
+					src={LogoHorizontal}
+					alt="Phil Lichti Logo"
+					width={200}
+					height={200}
+				/>
+			</div>
+		</div>
+		<div
+			class="flex flex-col w-full bg-[#252525] items-center pt-10 sm:pt-12 md:pt-16 px-4"
+		>
+			<div class="max-w-2xl">
+				<div class="w-full py-10 px-4 space-y-4 flex-start">
+					<h2 class="text-stone-400 tracking-wider text-lg font-bold">
+						ABOUT US
+					</h2>
+					<p class="text-gray-300 text-xl font-thin font-serif italic tracking-widest">
+						We help clients transform archival material into rich
+						multimedia narratives that challenge audiences to
+						reflect on how memory shapes history. This site brings
+						together samples of our work.
+					</p>
+				</div>
+				<div class="w-full py-10 space-y-4">
+					<h2 class="text-stone-400 tracking-wider text-lg font-bold">
+						FEATURED
+					</h2>
+					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 1
+						</div>
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 2
+						</div>
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 3
+						</div>
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 4
+						</div>
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 5
+						</div>
+						<div class="bg-gray-700 p-4 rounded text-center text-white">
+							Item 6
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
